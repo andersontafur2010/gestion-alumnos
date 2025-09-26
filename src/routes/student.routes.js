@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const studentController = require('../controllers/student.controller');
-const authMiddleware = require('../middlewares/auth.middleware');
 
-// todas requieren token
-router.use(authMiddleware);
+// todas requieren tok
 
 router.post('/', studentController.create);
 router.get('/', studentController.findAll);

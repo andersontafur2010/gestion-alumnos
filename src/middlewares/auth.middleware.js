@@ -12,7 +12,7 @@ module.exports = async function (req, res, next) {
     const user = await User.findByPk(decoded.id, { attributes: { exclude: ['password'] }});
     if (!user) return res.status(401).json({ message: 'Usuario no existe' });
 
-    req.user = user; // disponible en controllers
+    req.user = user; //📌 Aquí estará disponible el id del usuario en los controladores
     next();
   } catch (err) {
     return res.status(401).json({ message: 'Token inválido o expirado' });

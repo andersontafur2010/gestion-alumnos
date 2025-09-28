@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
     role: { type: DataTypes.STRING, allowNull: false, defaultValue: 'user' }
   }, {});
   User.associate = function(models) {
-    // associations if needed in el futuro
+    // 📌 añadida la relación con Course
+    User.hasMany(models.Course, { foreignKey: 'userId' });
   };
   return User;
 };

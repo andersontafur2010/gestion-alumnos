@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     age: { type: DataTypes.INTEGER }
   }, {});
   Student.associate = function(models) {
-    // associations si las hay
+    // Asociaciones: cada estudiante pertenece a un course (courseId)
+    Student.belongsTo(models.Course, { foreignKey: 'courseId' });
+    // si ya tienes otras asociaciones mantenerlas aquí también
   };
   return Student;
 };
